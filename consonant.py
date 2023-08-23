@@ -1,0 +1,19 @@
+def is_consonant(char):
+    return char.isalpha() and not char.islower() and char not in "aeiou"
+
+def get_consonant_value(char):
+    return ord(char) - ord('a') + 1
+
+def highest_consonant_value(s):
+    max_value = 0
+    current_value = 0
+
+    for char in s:
+        current_value = current_value + get_consonant_value(char) if is_consonant(char) else 0
+        max_value = max(max_value, current_value)
+
+    return max_value
+
+input_string = "valerie"
+result = highest_consonant_value(input_string)
+print(result)
